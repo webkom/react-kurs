@@ -3,6 +3,7 @@ import Item from './Item';
 
 class Main extends Component {
   static propTypes = {
+    changeStatus: PropTypes.func.isRequired,
     todos: PropTypes.array.isRequired
   };
 
@@ -10,7 +11,12 @@ class Main extends Component {
     return (
       <section className='main'>
         <ul className='todo-list'>
-          {this.props.todos.map((todo, index) => <Item todo={todo} key={index} />)}
+          {this.props.todos.map((todo, index) =>
+            <Item
+              todo={todo}
+              key={index}
+              changeStatus={this.props.changeStatus} />
+          )}
         </ul>
       </section>
     );

@@ -34,11 +34,24 @@ class App extends Component {
     });
   }
 
+  changeStatus(markTodo, done) {
+    const todos = this.state.todos.map(todo =>
+      markTodo !== todo ? todo : {
+        ...markTodo,
+        done
+      }
+    );
+
+    this.setState({ todos });
+  }
+
   render() {
     return (
       <div className='todoapp'>
         <Header onSave={this.addTodo.bind(this)} />
-        <Main todos={this.state.todos} />
+        <Main
+          changeStatus={this.changeStatus.bind(this)}
+          todos={this.state.todos} />
       </div>
     );
   }

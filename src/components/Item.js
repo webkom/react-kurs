@@ -3,8 +3,13 @@ import classNames from 'classnames';
 
 class Item extends Component {
   static propTypes = {
+    changeStatus: PropTypes.func.isRequired,
     todo: PropTypes.object.isRequired
   };
+
+  onStatusChange(event) {
+    this.props.changeStatus(this.props.todo, event.target.checked);
+  }
 
   render() {
     const { todo } = this.props;
@@ -14,7 +19,7 @@ class Item extends Component {
         <input
           className='toggle'
           type='checkbox'
-          onChange={() => null} // placeholder
+          onChange={this.onStatusChange.bind(this)}
           checked={todo.done} />
 
         <label>
