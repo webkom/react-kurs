@@ -20,11 +20,25 @@ class App extends Component {
     ]
   }
 
+  addTodo(text) {
+    const newTodo = {
+      text,
+      done: false
+    };
+
+    this.setState({
+      todos: [
+        newTodo,
+        ...this.state.todos
+      ]
+    });
+  }
+
   render() {
     return (
       <div className='todoapp'>
-        <Header />
-        <Main todos={this.state.todos}/>
+        <Header onSave={this.addTodo.bind(this)} />
+        <Main todos={this.state.todos} />
       </div>
     );
   }
