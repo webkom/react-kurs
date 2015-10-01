@@ -10,7 +10,7 @@ class Main extends Component {
     return (
       <section className='main'>
         <ul className='todo-list'>
-          {this.props.todos.map((todo, i) => <Item todo={todo} key={i} />)}
+          {this.props.todos.map((todo, index) => <Item todo={todo} key={index} />)}
         </ul>
       </section>
     );
