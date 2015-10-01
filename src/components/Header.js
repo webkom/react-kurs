@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-class Header extends React.Component {
+class Header extends Component {
   render() {
     return (
       <header>
-        <h1>Todo</h1>
+        <h1>Todos</h1>
+        <input
+          className='new-todo'
+          placeholder='What needs to be done?'
+          autoFocus='true' />
       </header>
     );
   }
