@@ -2,6 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 class Item extends Component {
+  static propTypes = {
+    todo: PropTypes.object.isRequired
+  };
+
   render() {
     const { todo } = this.props;
 
